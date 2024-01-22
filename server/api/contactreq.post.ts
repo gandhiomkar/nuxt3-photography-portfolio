@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
       contactnumber,
       subject,
       message,
+      isCompleted: false,
     });
     return { message: "contact request created" };
   } catch (err) {

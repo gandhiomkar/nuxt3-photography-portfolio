@@ -21,6 +21,7 @@ const contactReq = new Schema({
     type: String,
     required: [true, "please add message"],
   },
+  isCompleted: { type: Boolean, required: true },
   date: { type: Date, default: Date.now },
 });
 

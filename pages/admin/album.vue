@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+
+definePageMeta({ middleware: "auth" });
 const files = ref<FileList | null>(null);
 const title = ref("");
 const uploadedfilepaths = ref<string[] | null>(null);

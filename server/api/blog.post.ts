@@ -48,7 +48,7 @@ export default defineEventHandler(async (event) => {
   // Append the data to a new FormData (need to convert Buffer into string / Blob)
   formDataBody?.forEach((value: MultiPartData) => {
     if (value.name && value.data) {
-      if (value.name === "file") {
+      if (value.name === "file") {  
         const fileName = `${Date.now().toString()}-${value.filename}`;
         const filePath = path.join(path.resolve(), "public", fileName);
         fs.writeFileSync(filePath, value.data);

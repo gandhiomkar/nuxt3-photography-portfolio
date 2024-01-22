@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
     setResponseStatus(event, 401, "unauthorized");
-    return { message: "Invalid credentials" };
+    return { message: "Invalid password" };
   }
 
   // Generate a JSON Web Token (JWT) for authentication

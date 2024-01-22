@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- HTML form on the client-side -->
+
+<body>
+    <form @submit="submitForm" id="form">
+        <div>
+            <label for="name">Title:</label>
+            <input type="text" id="name" required />
+        </div>
+        <div>
+            <label for="email">Title:</label>
+            <input type="text" id="email" required />
+        </div>
+        <div>
+            <label for="contactnumber">Title:</label>
+            <input type="text" id="contactnumber" required />
+        </div>
+        <div>
+            <label for="subject">Title:</label>
+            <input type="text" id="subject" required />
+        </div>
+        <div>
+            <label for="message">Body:</label>
+            <textarea id="message" required></textarea>
+        </div>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+</body>
+
+<script>
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name")
+        const email = document.getElementById('email')
+        const contactnumber = document.getElementById('contactnumber')
+        const subject = document.getElementById('subject')
+        const message = document.getElementById('message')
+
+
+
+        // const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('email', email)
+        // formData.append('contactnumber', contactnumber)
+        // formData.append('subject', subject)
+        // formData.append('message', message)
+
+        const FormData = {
+            name,
+            email,
+            contactnumber,
+            subject,
+            message
+        }
+
+
+
+        fetch('http://localhost:3000/api/contactreq', {
+            method: 'POST',
+            body: FormData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
+
+
+</html>

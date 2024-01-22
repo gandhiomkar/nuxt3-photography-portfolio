@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- HTML form on the client-side -->
+
+<body>
+    <form @submit="submitForm" id="form">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" required />
+        </div>
+        <div>
+            <label for="body">Body:</label>
+            <textarea id="desc" required></textarea>
+        </div>
+        <div>
+            <label for="image">Image:</label>
+            <input type="file" id="fileInput" accept="image/*" required />
+        </div>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+</body>
+
+<script>
+    function handleImageUpload(event) {
+        // Handle the image upload and store the file in the blog object
+        const file = event.target.files[0];
+        this.blog.file = file;
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const file = fileInput.files[0];
+        const title = document.getElementById("title")
+        const desc = document.getElementById('desc')
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('title', title)
+        formData.append('desc', desc)
+
+        fetch('http://localhost:3000/api/blog', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
+
+
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@types/multer": "^1.4.11",
+    "autoprefixer": "^10.4.16",
+    "dotenv": "^16.3.1",
+    "nuxt": "^3.9.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "vue": "^3.4.5",
+    "vue-cli-plugin-tailwind": "~3.0.0",
+    "vue-router": "^4.2.5"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
+    "axios": "^1.6.5",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.4",
+    "multer": "^1.4.5-lts.1",
+    "nuxt-server-utils": "^0.0.7",
+    "punycode": "^2.3.1"
+  }
+}

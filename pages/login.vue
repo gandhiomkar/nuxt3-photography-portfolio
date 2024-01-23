@@ -47,7 +47,7 @@ const login = async () => {
   await authenticateUser(user.value); // call authenticateUser and pass the user object
   // redirect to homepage if user is authenticated
   if (authenticated.value === true) {
-    router.push("admin/");
+    router.push("admin/album");
   }
 };
 </script>
